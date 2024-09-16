@@ -9,7 +9,7 @@ while start:
     if cont <= 10 and start:
         print(termo)
         termo = (termo + raz)
-        cont = (cont + 1)
+        cont = (cont+ 1)
     else:
         start == 0
         break
