@@ -16,7 +16,6 @@ while not sair:
     cont = str(input('Continuar? (S/N) '))
     if cont in 'Nn':
         sair == True
-        break
     elif cont in 'Ss':
         sair == False
     else:
