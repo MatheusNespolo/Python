@@ -1,3 +1,9 @@
 #Consecutivos
+consec = 0
 N = int(input())
-numeros = list(map(float, X.split()))
+X = input()
+numeros = list(map(int, X.split()))
+for i, m in enumerate(numeros):
+    if numeros[i] == numeros[i-1]:
+        consec += 1
+    i += 1
