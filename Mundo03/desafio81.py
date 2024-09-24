@@ -11,6 +11,5 @@ while True:
     elif esc in 'Ss':
         print('Adicone mais valores.')
 print(f'A) Foram digitados {cont} números.')
-print(f'B) Foram digitados {numeros.sort(reverse=True)} números.')
-if '5' in numeros:
-    print(f'C) O número 5 foi digitado e está na lista.')
+print(f'B) Ordem decrescente: {sorted(numeros, reverse=True)}')
+print(f'C) O número 5 foi digitado {numeros.count(5)} vezes e está na lista.')
