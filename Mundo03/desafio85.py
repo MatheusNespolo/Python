@@ -9,4 +9,5 @@ for i in range(0,7):
         impares.append(valores[i])
 pareso = sorted(pares)
 impareso = sorted(impares)
-print(pareso + impareso)
+print(f'Os valores pares digitados foram: {pareso}')
+print(f'Os valores ímpares digitados foram: {impareso}')
