@@ -1,7 +1,6 @@
 peso = list()
 dado = list()
 cadastro = 0
-cont = 0
 while True:
     dado.append(str(input('Nome: ')))
     peso.append(int(input('Peso: ')))
@@ -13,5 +12,5 @@ while True:
     elif esc in 'Ss':
         print('Cadastre mais pessoas.')
 print(f'Ao todo, você cadastrou {cadastro} pessoas.')
-print(f'O maior peso foi de {max(peso)}Kg.')
-print(f'O menor peso foi de {min(peso)}Kg.')
+print(f'O maior peso foi de {max(peso)}Kg. Peso de {dado[peso.index(max(peso))]}')
+print(f'O menor peso foi de {min(peso)}Kg. Peso de {dado[peso.index(min(peso))]}')
