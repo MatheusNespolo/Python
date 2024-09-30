@@ -1,9 +1,9 @@
 #Consecutivos
+lista = []
 consec = 0
 N = int(input())
 X = input()
-numeros = list(map(int, X.split()))
-for i, m in enumerate(numeros):
-    if numeros[i] == numeros[i-1]:
+for i in range(0,N):
+    X = lista.append(int(input()))
+    if lista[i] == lista[i + 1]:
         consec += 1
-    i += 1
