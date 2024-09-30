@@ -2,8 +2,12 @@
 lista = []
 consec = 0
 N = int(input())
-X = input()
-for i in range(0,N):
-    X = lista.append(int(input()))
-    if lista[i] == lista[i + 1]:
-        consec += 1
+lista.append(input().split())
+len(lista) == N
+def achar_consecutivos():
+    for i in lista:
+        if lista[0][i] == lista[0][i+1]:
+            consec += 1
+    return consec()
+print(lista)
+print(consec)
