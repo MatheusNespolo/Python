@@ -1,33 +1,22 @@
 #Fita Colorida
-def proximo_pintado(valores):
-    if not valores:
-        return 0
+def calcular_distancia(fita):
+  distancias = []
+  for i in range(len(fita)):
+    if fita[i] == -1:
+      menor_distancia = float('inf')
+      for j in range(len(fita)):
+        if fita[j] == 0:
+          distancia = abs(i - j)
+          menor_distancia = min(menor_distancia, distancia)
+      if menor_distancia > 9:
+        menor_distancia = 9
+      distancias.append(menor_distancia)
+    else:
+      distancias.append(fita[i])
+  return distancias
 
-    for i in range(0, len(valores)):
-        if i == 0:
-            if valores[i] == -1:
-                index = valores.index(0)
-                saida.append(index)
-        elif i == 1:
-            if valores[i] == valores[i-1]:
-                saida.append(index-i)
-        elif i == 2:
-            if valores[i] == 0:
-                saida.append(0)
-        elif i > 2 and i < (len(valores)/2):
-            if valores[i] == -1:
-                index = valores[:i].index(0)
-                saida.append(i-index)
-            else:
-                saida.append(0)
-        else:
-            index = valores[i:].index(0)
-            saida.append(i-index)
-
-    return saida
-
-saida = []
 N = int(input())
-valores = list(map(int, input().split()))
-colorida = proximo_pintado(valores)
-print(colorida)    
+fita = list(map(int, input().split()))
+distancias = calcular_distancia(fita)
+
+print(*distancias)
