@@ -1,21 +1,10 @@
-#include <iostream>
+#Soma do Vetor
 
-using namespace std;
+n = int(input())
+v = list(map(int, input().split()))
+soma = 0
 
-int soma_vetor(int n, int v[]) {
-    int soma = 0;
-    for (int i = 0; i < n; i++) {
-        soma += v[i];
-    }
-    return soma;
-}
+for i in (v):
+    soma += i
 
-int main() {
-    int n, v[100100];
-    cin >> n;
-
-    for (int i = 0; i < n; i++)
-        cin >> v[i];
-
-    cout << soma_vetor(n, v) << "\n";
-}
+print(soma)
