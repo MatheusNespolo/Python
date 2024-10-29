@@ -1,6 +1,5 @@
 from time import sleep
 
-
 def contador(i, f, p):
     print(f'Contagem de {i} até o {f} de {p} em {p}.')
     print('-='*20)
