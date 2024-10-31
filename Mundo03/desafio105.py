@@ -1,4 +1,4 @@
-def notas(n, sit=True):
+def notas(n, sit=False):
     """ Função para anlisar notas e situações de vários alunos.
     :param n: uma ou mais notas dos alunos (aceita várias).
     :param sit: valor opcional, indicando ou não a situação.
