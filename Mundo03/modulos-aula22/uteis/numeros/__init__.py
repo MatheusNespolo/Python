@@ -1,7 +1,8 @@
 def fatorial(n):
-    for c in range (1, n + 1):
+    f = 1
+    for c in range (1, n+1):
         f *= c
-        return f
+    return f
 
 def dobro(n):
     return n * 2
