@@ -1,3 +1,5 @@
+import colorama
+
 def aumentar(n, por):
     aumento = (por / 100) * n
     return aumento + n
@@ -58,8 +60,7 @@ def leiaMoeda():
         return float(n)
     else:
         while n.isdigit() == False:
-            print('Entrada inválida!')
+            print(colorama.Back.RED + f'Entrada inválida! {n} não é um número.' + colorama.Style.RESET_ALL)
             n = str(input('Digite o preço: R$'))
             if n.isdigit():
                 return float(n)
-                break
