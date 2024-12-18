@@ -5,4 +5,9 @@ consoantes = 'bcdfghjkhlmnpqrstvwxyz'
 for i in range(0,len(consoantes)):
     risada = risada.replace(consoantes[i],'')
 
-print(risada)
+risadaInvertida = risada[::-1]
+
+if risada == risadaInvertida:
+    print('S')
+else:
+    print('N')
