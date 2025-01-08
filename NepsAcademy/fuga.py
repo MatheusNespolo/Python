@@ -7,4 +7,4 @@ P = posicoes[1]
 F = posicoes[2]
 D = posicoes[3]
 
-
+# Não finalizado
