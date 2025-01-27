@@ -1,4 +1,5 @@
 # Python
+
 Este repositório foi criado para estudo da linguagem de programação Python.
 
 Parte dos programas são das vídeo aulas e outra parte são exercícios das plataformas Beecrowd e NepsAcademy.
