@@ -1,21 +1,23 @@
 #Po que mão
 
 N = int(input())
+
 X = int(input())
 Y = int(input())
 Z = int(input())
-poquemaos = 0
 
-if (N - X) >= 0:
-    poquemaos += 1
-    N -= X
-if (N - Y) >= 0:
-    poquemaos += 1
-    N -= Y
-if (N - Z) >= 0:
-    poquemaos += 1
-    N -= Z
+doces_necessarios = [X, Y, Z]
 
-print(poquemaos)
+# Ordena a lista para tentar evoluir as pô-que-mãos que precisam de menos doces primeiro
+doces_necessarios.sort()
 
-# Não finalizado
+pode_evoluir = 0
+
+for i in doces_necessarios:
+    if N >= i:
+        N -= i
+        pode_evoluir += 1
+    else:
+        break
+
+print(pode_evoluir)
