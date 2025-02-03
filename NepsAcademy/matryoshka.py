@@ -1,22 +1,17 @@
 #Matryoshka
 
 N = int(input())
+tamanhos = list(map(int, input().split()))
 
-m = list(map(int, input().split()))
-mo = sorted(m)
+sequencia_correta = sorted(tamanhos)
+bonecas_recolher = []
 
-recolher = 0
-recolhidos = []
+for i in range(N):
+    if tamanhos[i] != sequencia_correta[i]:
+        bonecas_recolher.append(tamanhos[i])
 
-for i in range(0, len(m)):
-    if i != mo[i]:
-        recolher += 1
-        recolhidos.append(m[i])
-    elif i == mo[i]:
-        recolher = recolher
+bonecas_recolher.sort()
 
-print(recolher)
-for k in recolhidos:
-    print(k, end=' ')
-
-# Não finalizado
+print(len(bonecas_recolher))
+if bonecas_recolher:
+    print(' '.join(map(str, bonecas_recolher)))
