@@ -18,3 +18,5 @@ for i in range(N):
 
 if peD == peE and sum(tamanhosD) == sum(tamanhosE):
     print(int(N / peD))
+
+#Não finalizado
