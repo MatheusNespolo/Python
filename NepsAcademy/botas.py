@@ -1,22 +1,22 @@
-#Botas Trocadas
+# Botas Trocadas - Versão Aprimorada
 
 N = int(input())
-tamanhosD = []
-tamanhosE = []
-peD = 0
-peE = 0
+tamanhosD = {}  
+tamanhosE = {}  # Dicionários para contar botas
 
-for i in range(N):
-    tamanho, pe = map(str, input().split())
+for _ in range(N):
+    tamanho, pe = input().split()
+    tamanho = int(tamanho)
+    
     if pe == 'D':
-        peD += 1
-        tamanhosD.append(int(tamanho))
+        tamanhosD[tamanho] = tamanhosD.get(tamanho, 0) + 1
     elif pe == 'E':
-        peE += 1
-        tamanhosE.append(int(tamanho))
-    
+        tamanhosE[tamanho] = tamanhosE.get(tamanho, 0) + 1
 
-if peD == peE and sum(tamanhosD) == sum(tamanhosE):
-    print(int(N / peD))
-elif peD == peE:
-    
+# Contagem de pares
+pares = 0
+for tamanho in tamanhosD:
+    if tamanho in tamanhosE:
+        pares += min(tamanhosD[tamanho], tamanhosE[tamanho])
+
+print(pares)
