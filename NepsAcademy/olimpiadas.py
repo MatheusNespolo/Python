@@ -1,31 +1,32 @@
 # Olimpíadas
 
+# Recebendo a entrada
 N, M = map(int, input().split())
+
 # N = número de países, M = número de modalidades
 
-paises = list(range(1, N + 1))
-medalhas = []
+# Inicializando a lista de países e medalhas
+paises = list(range(1, N + 1))  # Países são numerados de 1 a N
+medalhas = {'ouro': [0] * N, 'prata': [0] * N, 'bronze': [0] * N}  # Dicionário para contar medalhas
 
-for j in range(M):
+# Lendo as medalhas de cada modalidade
+for _ in range(M):
     O, P, B = map(int, input().split())
-    medalhas.append([O, P, B])
+    medalhas['ouro'][O - 1] += 1  # Subtraímos 1 porque os países começam em 1
+    medalhas['prata'][P - 1] += 1
+    medalhas['bronze'][B - 1] += 1
 
-# Contar medalhas por país
-contagem_medalhas = {}
-for O, P, B in medalhas:
-    if O not in contagem_medalhas:
-        contagem_medalhas[O] = [0, 0, 0]
-    if P not in contagem_medalhas:
-        contagem_medalhas[P] = [0, 0, 0]
-    if B not in contagem_medalhas:
-        contagem_medalhas[B] = [0, 0, 0]
-    contagem_medalhas[O][0] += 1  # Ouro
-    contagem_medalhas[P][1] += 1  # Prata
-    contagem_medalhas[B][2] += 1  # Bronze
+# Criando uma lista de tuplas para ordenação
+classificacao = []
+for i in range(N):
+    classificacao.append((medalhas['ouro'][i], medalhas['prata'][i], medalhas['bronze'][i], paises[i]))
 
-# Ordenar países por medalhas (ouro, prata, bronze) e ordem original
-paises_ordenados = sorted(contagem_medalhas.items(), key=lambda x: (-x[1][0], -x[1][1], -x[1][2], list(range(1, N + 1)).index(x[0])))
+# Ordenando a classificação
+# Ordenamos primeiro pelo ouro, depois prata, depois bronze, e finalmente pelo número do país
+classificacao.sort(reverse=True, key=lambda x: (x[0], x[1], x[2], -x[3]))
 
-# Imprimir classificação
-for pais, medalhas in paises_ordenados:
-    print(pais, end=' ')
+# Extraindo a ordem dos países
+ordem_paises = [pais for (_, _, _, pais) in classificacao]
+
+# Exibindo a classificação final em uma única linha
+print(" ".join(map(str, ordem_paises)))
