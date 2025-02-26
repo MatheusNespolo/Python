@@ -1,13 +1,10 @@
-#Olimpíadas
+# Olimpíadas
 
 N, M = map(int, input().split())
 # N = número de países, M = número de modalidades
 
 paises = list(range(1, N + 1))
 medalhas = []
-
-for i in range(1, N + 1):
-    paises.append(i)
 
 for j in range(M):
     O, P, B = map(int, input().split())
@@ -26,8 +23,8 @@ for O, P, B in medalhas:
     contagem_medalhas[P][1] += 1  # Prata
     contagem_medalhas[B][2] += 1  # Bronze
 
-# Ordenar países por medalhas (ouro, prata, bronze)
-paises_ordenados = sorted(contagem_medalhas.items(), key=lambda x: (x[1][0], x[1][1], x[1][2]), reverse=True)
+# Ordenar países por medalhas (ouro, prata, bronze) e ordem original
+paises_ordenados = sorted(contagem_medalhas.items(), key=lambda x: (-x[1][0], -x[1][1], -x[1][2], list(range(1, N + 1)).index(x[0])))
 
 # Imprimir classificação
 for pais, medalhas in paises_ordenados:
