@@ -65,5 +65,15 @@ for j in range(9, 12):
         quartas.append('E')
     elif resultadosN[10] > resultadosM[10] and oitavas[2] == 'F':
         quartas.append('F')
+    elif resultadosN[10] < resultadosM[10] and oitavas[3] == 'G' and 'G' not in quartas:
+        quartas.append('G')
+    elif resultadosN[10] < resultadosM[10] and oitavas[3] == 'H' and 'H' not in quartas:
+        quartas.append('H')
+    if resultadosN[11] > resultadosM[11] and oitavas[4] == 'I' and 'I' not in quartas:
+        quartas.append('I')
+    elif resultadosN[11] > resultadosM[11] and oitavas[4] == 'J' and 'J' not in quartas:
+        quartas.append('J')
+    elif resultadosN[11] < resultadosM[11] and oitavas[5] == 'K' and 'K' not in quartas:
+        quartas.append('K')
 
 print(quartas)
