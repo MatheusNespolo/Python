@@ -18,4 +18,3 @@ def solution(A):
         if indice == -1:
             return contador
     pass
-print(solution([1, 4, -1, 3, 2]))
