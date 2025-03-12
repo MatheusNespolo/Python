@@ -13,8 +13,9 @@ def solution(A):
         indice = A[indice]
         if contador > len(A):
             indicador = True
+            return contador
         if contador == len(A):
-            return -1
+            return 1
         if indice == -1:
             return contador
     pass
