@@ -1,3 +1,5 @@
+#  Fatias limitadas
+
 from collections import deque
 
 def solution(K, A):
