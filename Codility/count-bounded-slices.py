@@ -2,35 +2,36 @@ from collections import deque
 
 def solution(K, A):
     N = len(A)
-    left = 0
-    count = 0
+    esquerda = 0
+    contador = 0
     min_deque = deque()
     max_deque = deque()
     
-    for right in range(N):
-        # Maintain min deque
-        while min_deque and A[right] < A[min_deque[-1]]:
+    for direita in range(N):
+        # Mantém o min_deque
+        while min_deque and A[direita] < A[min_deque[-1]]:
             min_deque.pop()
-        min_deque.append(right)
+        min_deque.append(direita)
         
-        # Maintain max deque
-        while max_deque and A[right] > A[max_deque[-1]]:
+        # Mantém o max_deque
+        while max_deque and A[direita] > A[max_deque[-1]]:
             max_deque.pop()
-        max_deque.append(right)
+        max_deque.append(direita)
         
-        # If the current window is invalid, shrink it from the left
+        # Se uma determinada faixa não estiver dentro do intervalo, incrementa 'esquerda'
         while A[max_deque[0]] - A[min_deque[0]] > K:
-            left += 1
-            if min_deque[0] < left:
+            esquerda += 1
+            if min_deque[0] < esquerda:
                 min_deque.popleft()
-            if max_deque[0] < left:
+            if max_deque[0] < esquerda:
                 max_deque.popleft()
         
-        # Count the number of valid slices ending at 'right'
-        count += right - left + 1
+        # conta o número de fatias válidas que iniciam na 'direita'
+        contador += direita - esquerda + 1
         
-        # Early termination if count exceeds 1,000,000,000
-        if count > 1_000_000_000:
+        # Execeção 1,000,000,000
+        if contador > 1_000_000_000:
             return 1_000_000_000
     
-    return count
+    return contador
+
