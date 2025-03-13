@@ -10,17 +10,17 @@ def solution(K, A):
     max_deque = deque()
     
     for direita in range(N):
-        # Mantém o min_deque
+        # Atualiza o min_deque
         while min_deque and A[direita] < A[min_deque[-1]]:
             min_deque.pop()
         min_deque.append(direita)
         
-        # Mantém o max_deque
+        # Atualiza o max_deque
         while max_deque and A[direita] > A[max_deque[-1]]:
             max_deque.pop()
         max_deque.append(direita)
         
-        # Se uma determinada faixa não estiver dentro do intervalo, incrementa 'esquerda'
+        # Não atende = incremento 'esquerda'
         while A[max_deque[0]] - A[min_deque[0]] > K:
             esquerda += 1
             if min_deque[0] < esquerda:
