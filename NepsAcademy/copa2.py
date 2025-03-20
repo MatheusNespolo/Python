@@ -1,84 +1,38 @@
-#Copa do Mundo (OBI 2010)
+def determinar_campeao(resultados):
+    # Definição das chaves de acordo com a imagem
+    chaves = [
+        ('A', 'B'), ('C', 'D'), ('E', 'F'), ('G', 'H'),
+        ('I', 'J'), ('K', 'L'), ('M', 'N'), ('O', 'P')
+    ]
+    
+    quartas = []
+    for i in range(8):
+        m, n = resultados[i]
+        vencedor = chaves[i][0] if m > n else chaves[i][1]
+        quartas.append(vencedor)
+    
+    semi = []
+    for i in range(4):
+        m, n = resultados[8 + i]
+        vencedor = quartas[2 * i] if m > n else quartas[2 * i + 1]
+        semi.append(vencedor)
+    
+    finalistas = []
+    for i in range(2):
+        m, n = resultados[12 + i]
+        vencedor = semi[2 * i] if m > n else semi[2 * i + 1]
+        finalistas.append(vencedor)
+    
+    # Jogo final
+    m, n = resultados[14]
+    campeao = finalistas[0] if m > n else finalistas[1]
+    
+    print(campeao)
 
-#Entrada
-resultadosN = []
-resultadosM = []
+# Leitura da entrada
+dados = []
+for _ in range(15):
+    m, n = map(int, input().split())
+    dados.append((m, n))
 
-for i in range(0, 15):
-    N, M = map(int, input().split())
-    resultadosN.append(N)
-    resultadosM.append(M)
-
-#Processamento das oitavas
-oitavas = []
-if resultadosN[0] < resultadosM[0] and 'A' not in oitavas:
-    oitavas.append('A')
-elif resultadosN[0] > resultadosM[0] and 'B' not in oitavas:
-    oitavas.append('B')
-if resultadosN[1] < resultadosM[1] and 'C' not in oitavas:
-    oitavas.append('C')
-elif resultadosN[1] > resultadosM[1] and 'D' not in oitavas:
-    oitavas.append('D')
-if resultadosN[2] < resultadosM[2] and 'E' not in oitavas:
-    oitavas.append('E')
-elif resultadosN[2] > resultadosM[2] and 'F' not in oitavas:
-    oitavas.append('F')
-if resultadosN[3] < resultadosM[3] and 'G' not in oitavas:
-    oitavas.append('G')
-elif resultadosN[3] > resultadosM[3] and 'H' not in oitavas:
-    oitavas.append('H')
-if resultadosN[4] < resultadosM[4] and 'I' not in oitavas:
-    oitavas.append('I')
-elif resultadosN[4] > resultadosM[4] and 'J' not in oitavas:
-    oitavas.append('J')
-if resultadosN[5] < resultadosM[5] and 'K' not in oitavas:
-    oitavas.append('K')
-elif resultadosN[5] > resultadosM[5] and 'L' not in oitavas:
-    oitavas.append('L')      
-if resultadosN[6] < resultadosM[6] and 'M' not in oitavas:
-    oitavas.append('M')    
-elif resultadosN[6] > resultadosM[6] and 'N' not in oitavas:
-    oitavas.append('N')
-if resultadosN[7] < resultadosM[7] and 'O' not in oitavas:
-    oitavas.append('O')
-elif resultadosN[7] > resultadosM[7] and 'P' not in oitavas:
-    oitavas.append('P')
-
-print(oitavas)
-
-#Processamento das quartas
-quartas = []
-if resultadosN[8] < resultadosM[8] and oitavas[0] == 'A' and 'A' not in quartas:
-    quartas.append('A')
-elif resultadosN[8] < resultadosM[8] and oitavas[0] == 'B' and 'B' not in quartas:
-    quartas.append('B')
-elif resultadosN[8] > resultadosM[8] and oitavas[1] == 'C' and 'C' not in quartas:
-    quartas.append('C')
-elif resultadosN[8] > resultadosM[8] and oitavas[1] == 'D' and 'D' not in quartas:
-    quartas.append('D')
-if resultadosN[9] < resultadosM[9] and oitavas[2] == 'E' and 'E' not in quartas:
-    quartas.append('E')
-elif resultadosN[9] < resultadosM[9] and oitavas[2] == 'F' and 'F' not in quartas:
-    quartas.append('F')
-elif resultadosN[9] > resultadosM[9] and oitavas[3] == 'G' and 'G' not in quartas:
-    quartas.append('G')
-elif resultadosN[9] > resultadosM[9] and oitavas[3] == 'H' and 'H' not in quartas:
-    quartas.append('H')
-if resultadosN[10] < resultadosM[10] and oitavas[4] == 'I' and 'I' not in quartas:
-    quartas.append('I')
-elif resultadosN[10] < resultadosM[10] and oitavas[4] == 'J' and 'J' not in quartas:
-    quartas.append('J')
-elif resultadosN[10] > resultadosM[10] and oitavas[5] == 'K' and 'K' not in quartas:
-    quartas.append('K')
-elif resultadosN[10] > resultadosM[10] and oitavas[5] == 'L' and 'L' not in quartas:
-    quartas.append('L')
-if resultadosN[11] < resultadosM[11] and oitavas[6] == 'M' and 'M' not in quartas:
-    quartas.append('M')
-elif resultadosN[11] < resultadosM[11] and oitavas[6] == 'N' and 'N' not in quartas:
-    quartas.append('N')
-elif resultadosN[11] > resultadosM[11] and oitavas[7] == 'O' and 'O' not in quartas:
-    quartas.append('O')
-elif resultadosN[11] > resultadosM[11] and oitavas[7] == 'P' and 'P' not in quartas:
-    quartas.append('P')        
-
-print(quartas)
+determinar_campeao(dados)
