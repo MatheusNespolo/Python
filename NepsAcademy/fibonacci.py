@@ -1,5 +1,5 @@
 #Fibonacci
-#https://neps.academy/br/exercise/173
+#https://neps.academy/br/exercise/257
 n = int(input())
 n1, n2 = 0, 1
 count = 0
