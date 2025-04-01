@@ -24,9 +24,5 @@ for j in range(T):
             #Adicionando os alunos aos times
 
 #Saída
-for i in range(T):
-    print(f'Time {i+1}:', end=' ')
-    for j in range(len(times[i])):
-        print(times[i][j], end=' ')
-    print()
+
 #Imprimindo os times e os alunos
