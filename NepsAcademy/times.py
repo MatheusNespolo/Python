@@ -20,13 +20,13 @@ for j in range(T):
     times[j] = []
     #Criando dicionário para os times 
 
-aluno = list(alunos.keys())
-times[j].append(aluno)
-alunos.popitem()
-#Adicionando os alunos aos times, removendo da lista de alunos
+for k in range(T):
+    aluno = list(alunos.keys())
+    times[k].append(aluno)
+    alunos.popitem()
+    #Adicionando os alunos aos times, removendo da lista de alunos
 
 #Saída
 
 print(times)
-
 #Imprimindo os times
