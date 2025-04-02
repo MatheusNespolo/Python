@@ -17,12 +17,16 @@ alunos = dict(sorted(alunos.items(), key=lambda item: item[1], reverse=True))
 
 times = {}
 for j in range(T):
-    times[i] = []
-    #Criando dicionário para os times
-    for k in range(i, N, T):
-            times[i].append(list(alunos.keys())[j])
-            #Adicionando os alunos aos times
+    times[j] = []
+    #Criando dicionário para os times 
+
+aluno = list(alunos.keys())
+times[j].append(aluno)
+alunos.popitem()
+#Adicionando os alunos aos times, removendo da lista de alunos
 
 #Saída
 
-#Imprimindo os times e os alunos
+print(times)
+
+#Imprimindo os times
