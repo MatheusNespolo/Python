@@ -28,11 +28,13 @@ for k in range(N):
         #Adicionando o aluno ao time
         times[k % T].append(list(alunos.keys())[k])
 
+times_ordenados = {chave: sorted(nomes) for chave, nomes in times.items()}
+#Ordenando os nomes dos alunos em ordem alfabética em outro dicionário
 
 #Saída
-print(alunos)
-print(len(alunos))
-#Imprimindo os alunos e suas habilidades
-print(len(times))
-print(times)
-#Imprimindo os times
+for l in range(T):
+    print(f'Time {l + 1}')
+    for m in times_ordenados[l]:
+        print(m)
+    print()
+#Imprimindo os times e os alunos
