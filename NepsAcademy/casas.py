@@ -11,4 +11,3 @@ for j in range(len(casas)):
     for k in range(j+1, len(casas)):
         if casas[j] + casas[k] == K:
             print(casas[j], casas[k])
-            break
