@@ -1,7 +1,6 @@
 #Expressões
 #https://neps.academy/br/exercise/271
 
-
 #Entrada
 instancias = []
 #Lista de strings para armazenar as instâncias
