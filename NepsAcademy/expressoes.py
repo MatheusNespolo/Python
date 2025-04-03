@@ -1,37 +1,26 @@
 #Expressões
 #https://neps.academy/br/exercise/271
-
-#Entrada
-instancias = []
-#Lista de strings para armazenar as instâncias
+# Entrada
 T = int(input())
-#Número de instâncias
+instancias = [input() for _ in range(T)]
 
-for i in range(T):
-    A = str((input()))
-    instancias.append(A)
-#Adiciona o conjunto de caracteres como itens (strings) da lista
+# Função para validar expressões com pilha
+def verifica_expressao(expr):
+    pilha = []
+    pares = {')': '(', ']': '[', '}': '{'}
+    
+    for char in expr:
+        if char in "({[":
+            pilha.append(char)
+        elif char in ")}]":
+            # Se a pilha está vazia ou o topo da pilha não corresponde ao caractere atual
+            if not pilha or pilha[-1] != pares[char]:
+                return "N"
+            pilha.pop()  # Remove o par correspondente
 
-#Processamento
-respostas = []
-#Lista de respostas para armazenar os resultados
-for j in range(T):
-    if instancias[j].find(')') < instancias[j].find('(') or instancias[j].find(']') < instancias[j].find('[') or instancias[j].find('}') < instancias[j].find('{'):
-        respostas.append('N')
-    else:
-        if instancias[j].count('(') == instancias[j].count(')'):
-            if instancias[j].count('{') == instancias[j].count('}'):
-                if instancias[j].count('[') == instancias[j].count(']'):
-                    respostas.append('S')
-                else:
-                    respostas.append('N')
-            else:
-                respostas.append('N')
-        else:
-            respostas.append('N')
-#Verifica se o número de caracteres de cada tipo é igual, se sim, adiciona 'S' à lista de respostas, caso contrário, adiciona 'N'.
+    # Se a pilha ainda tiver elementos, há parênteses não fechados corretamente
+    return "S" if not pilha else "N"
 
-#Saída
-for k in respostas:
-    print(k)
-#Imprime as respostas
+# Processamento e saída
+for instancia in instancias:
+    print(verifica_expressao(instancia))
