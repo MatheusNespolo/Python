@@ -7,7 +7,10 @@ casas = [int(input()) for _ in range(N)]
 K = int(input())
 
 #Processamento + Saída
-for j in range(len(casas)):
-    for k in range(j+1, len(casas)):
-        if casas[j] + casas[k] == K:
-            print(casas[j], casas[k])
+valores_vistos = set()
+for num in casas:
+    complemento = K - num
+    #Cria a variável complemento que é o número que falta para chegar a K
+    if complemento in valores_vistos:
+        print(complemento, num)
+    valores_vistos.add(num)
