@@ -2,23 +2,25 @@
 #https://neps.academy/br/exercise/248
 
 #Entrada
-inicios = []
-terminos = []
+horarios = []
+duracao = []
 consultas = 1
 N = int(input())
 
-inicio, termino = map(int, input().split())
-inicios.append(inicio)
-terminos.append(termino)
+for i in range(N):
+    inicio, termino = map(int, input().split())
+    duracao.append(termino - inicio)
+    horarios.append(inicio)
+    horarios.append(termino)
 
 #Processamento
-for j in range(1, N):
-    if inicios[j] >= terminos[j-1]:
-        consultas += 1
-    if inicios[j] < terminos[j-1]:
-        inicios.remove(inicios[j])
-        terminos.remove(terminos[j])
+for j in range(N*2):
+    if j % 2 == 0:
+        if horarios[j] >= horarios[j-1]:
+            consultas += 1
+        if horarios[j] < horarios[j-1]:
+            horarios.remove(horarios[j])
+            consultas = consultas
 
 #Saída
-print(inicios)
-print(terminos)
+print(consultas)
