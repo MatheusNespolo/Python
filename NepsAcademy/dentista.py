@@ -12,13 +12,14 @@ for i in range(N):
     terminos.append(Y)
 
 #Processamento
-for j in range(1, N):
-    if inicios[j] >= terminos[j-1]:
-        consultas += 1
+inicios.pop(0)
+for j in range(0, len(inicios)-1):
     if inicios[j] < terminos[j-1]:
-        inicios.remove(inicios[j])
-        terminos.remove(terminos[j])
         consultas = consultas
+
+for k in range(0, len(inicios)-1):
+    if inicios[k] >= terminos[k-1]:
+        consultas += 1
 
 #Saída
 print(inicios)
