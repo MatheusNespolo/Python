@@ -13,12 +13,13 @@ for i in range(N):
 
 #Processamento
 inicios.pop(0)
-for j in range(0, len(inicios)-1):
+terminos.pop(-1)
+for j in range(0, len(inicios)):
     if inicios[j] < terminos[j-1]:
         consultas = consultas
 
-for k in range(0, len(inicios)-1):
-    if inicios[k] >= terminos[k-1]:
+for k in range(0, len(terminos)):
+    if inicios[j] >= terminos[k-1]:
         consultas += 1
 
 #Saída
