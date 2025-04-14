@@ -2,9 +2,9 @@
 #https://neps.academy/br/exercise/248
 
 #Entrada
-consultas = 1
 inicios = []
 terminos = []
+consultas = 0
 N = int(input())
 for i in range(N):
     X, Y = map(int, input().split())
@@ -12,17 +12,20 @@ for i in range(N):
     terminos.append(Y)
 
 #Processamento
-inicios.pop(0)
-terminos.pop(-1)
-for j in range(0, len(inicios)):
-    if inicios[j] < terminos[j-1]:
-        consultas = consultas
-
-for k in range(0, len(terminos)):
-    if inicios[j] >= terminos[k-1]:
-        consultas += 1
+def marcar_consultas(inicios, terminos):
+    inicios.remove(inicios[0])
+    consultas = 1
+    for inicio in inicios:
+        if consultas == N:
+                break
+        for termino in terminos:
+            if consultas == N:
+                break
+            if inicio >= termino:
+                consultas += 1
+            if inicio < termino:
+                break
+    return consultas
 
 #Saída
-print(inicios)
-print(terminos)
-print(consultas)
+print(marcar_consultas(inicios, terminos))
