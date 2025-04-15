@@ -9,15 +9,16 @@ for i in range(N):
     X, Y = map(int, input().split())
     inicios.append(X)
     terminos.append(Y)
+inicios.remove(inicios[0])
 
 #Processamento
 def marcar_consultas(inicios, terminos):
     consultas = 1
-    for j in range(len(inicios)):
-        if inicios[j] >= terminos[j-1]:
+    for i in range(len(inicios)):
+        if inicios[i] >= terminos[i-1]:
             consultas += 1
-        if inicios[j] < terminos[j-1]:
-            consultas = consultas
+    print(inicios)
+    print(terminos)
 
     return consultas
 
