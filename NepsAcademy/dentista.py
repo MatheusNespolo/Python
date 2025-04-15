@@ -1,28 +1,24 @@
 #Dentista
 #https://neps.academy/br/exercise/248
 
-#Bibliotecas
-from collections import deque
-
 #Entrada
-inicios = deque()
-terminos = deque()
+inicios = []
+terminos = []
 N = int(input())
 for i in range(N):
     X, Y = map(int, input().split())
     inicios.append(X)
     terminos.append(Y)
-inicios.popleft()
 
 #Processamento
 def marcar_consultas(inicios, terminos):
-    consultas = N
-    for inicio in inicios:
-        for termino in terminos:
-            if inicio >= termino:
-                consultas += 1
-            if (inicio - termino) < 0:
-                inicios.popleft()
+    consultas = 1
+    for j in range(len(inicios)):
+        if inicios[j] >= terminos[j-1]:
+            consultas += 1
+        if inicios[j] < terminos[j-1]:
+            consultas = consultas
+
     return consultas
 
 #Saída
