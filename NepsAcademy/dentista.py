@@ -13,14 +13,18 @@ inicios.remove(inicios[0])
 
 #Processamento
 def marcar_consultas(inicios, terminos):
-    consultas = 1
-    for i in range(len(inicios)):
-        if inicios[i] >= terminos[i-1]:
-            consultas += 1
-    print(inicios)
-    print(terminos)
+    marcadas = N
+    desmarcadas = 0
+    for inicio in inicios:
+        if marcadas == N:
+                break
+        if inicio < terminos[0]:
+            desmarcadas += 1
+        for termino in terminos:
+            if inicio >= termino:
+                marcadas += 1
 
-    return consultas
+    return marcadas - desmarcadas
 
 #Saída
 print(marcar_consultas(inicios, terminos))
