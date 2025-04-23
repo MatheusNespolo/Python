@@ -16,6 +16,7 @@ print(itens_na_lista([1, 2, 3, 4, 5]))
 #Sugestão
 
 def conta(lista):
+    
     if lista == []:
         return 0
     else:
