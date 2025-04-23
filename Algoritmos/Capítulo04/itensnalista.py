@@ -12,3 +12,13 @@ def itens_na_lista(lista):
         return itens
 
 print(itens_na_lista([1, 2, 3, 4, 5]))
+
+#Sugestão
+
+def conta(lista):
+    if lista == []:
+        return 0
+    else:
+        return 1 + conta(lista[1:])
+
+print(conta([3,6,8,4,9,5,1,2,34]))
