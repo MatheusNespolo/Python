@@ -10,16 +10,13 @@ FuncionariosPorAndar.append(A1)
 FuncionariosPorAndar.append(A2)
 FuncionariosPorAndar.append(A3)
 
-#Processamento
+#Processamento e Saída
 AndarDaMaquina = FuncionariosPorAndar.index(max(FuncionariosPorAndar))
 FuncionariosPorAndar.remove(max(FuncionariosPorAndar))
 
 if AndarDaMaquina == 0:
-    MinutosTomados = FuncionariosPorAndar[0] * 2 + FuncionariosPorAndar[1] * 4
+    print(A2 * 2 + A3 * 4)
 if AndarDaMaquina == 1:
-    MinutosTomados = FuncionariosPorAndar[0] * 2 + FuncionariosPorAndar[1] * 2
+    print(A1 * 2 + A3 * 2)
 if AndarDaMaquina == 2:
-    MinutosTomados = FuncionariosPorAndar[0] * 4 + FuncionariosPorAndar[1] * 2
-
-#Saída
-print(MinutosTomados)
+    print(A1 * 4 + A2 * 2)
