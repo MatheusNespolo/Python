@@ -9,11 +9,10 @@ FuncionariosPorAndar = [A1, A2, A3]
 
 #Processamento e Saída
 AndarDaMaquina = FuncionariosPorAndar.index(max(FuncionariosPorAndar))
-FuncionariosPorAndar.remove(max(FuncionariosPorAndar))
 
 if AndarDaMaquina == 0:
     print(A2 * 2 + A3 * 4)
-if AndarDaMaquina == 1 or A1 == A2 or A2 == A3:
+if AndarDaMaquina == 1:
     print(A1 * 2 + A3 * 2)
 if AndarDaMaquina == 2:
     print(A1 * 4 + A2 * 2)
