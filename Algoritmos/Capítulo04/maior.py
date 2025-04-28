@@ -10,7 +10,7 @@ def maior(lista):
 
 print(maior([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
-#Sugetsão
+#Sugestão
 def maximo(lista):
     if len(lista) == 2:
         return lista[0] if lista[0] > lista[1] else lista[1]
