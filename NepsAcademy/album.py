@@ -3,14 +3,10 @@
 
 N = int(input())
 M = int(input())
-compradas = []
+compradas = set()
 
 for _ in range(M):
     X = int(input())
-    compradas.append(X)
-
-for figurinhas in compradas:
-    while compradas.count(figurinhas) > 1:
-        compradas.remove(figurinhas)
+    compradas.add(X)
     
 print(N - len(compradas))
