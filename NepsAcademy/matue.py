@@ -5,7 +5,7 @@ A, B, C = map(int, input().split())
 
 if A == B or A == C or B == C:
     print('S')
-if A == (B + C) or B == (A + C) or C == (A + B):
+elif A == (B + C) or B == (A + C) or C == (A + B):
     print('S')
 else:
     print('N')
