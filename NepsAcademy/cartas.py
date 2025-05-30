@@ -1,4 +1,5 @@
 #Cartas
+#https://neps.academy/br/exercise/20
 
 A = int(input())
 B = int(input())
