@@ -13,8 +13,8 @@ menorConjunto = min(A, B)
 
 for i in range(menorConjunto):
     if cartasAlice[i] not in cartasBeatriz:
-        trocas += 1
         if cartasAlice[i] not in cartasTrocadas:
+            trocas += 1
             cartasTrocadas.append(cartasAlice[i])
 
 #Saída
