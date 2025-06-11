@@ -3,19 +3,16 @@
 
 # Entrada
 A, B = map(int, input().split())
-cartasAlice = list(map(int, input().split()))
-cartasBeatriz = list(map(int, input().split()))
-cartasTrocadas = []
+cartasAlice = set(map(int, input().split()))
+cartasBeatriz = set(map(int, input().split()))
 trocas = 0
 
 # Processamento
-menorConjunto = min(A, B)
 
-for i in range(menorConjunto):
-    if cartasAlice[i] not in cartasBeatriz:
-        if cartasAlice[i] not in cartasTrocadas:
-            trocas += 1
-            cartasTrocadas.append(cartasAlice[i])
+exclusivasAlice = cartasAlice - cartasBeatriz
+exclusivasBeatriz = cartasBeatriz - cartasAlice
+
+trocas = min(len(exclusivasAlice) , len(exclusivasBeatriz))
 
 #Saída
 print(trocas)
