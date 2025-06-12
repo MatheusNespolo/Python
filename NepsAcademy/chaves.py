@@ -4,19 +4,27 @@
 def confere_chaves():
     #Entrada
     linhas = int(input())
-    codigo = str()
-    validacao = False
+    codigo = ''
 
     #Processamento
     for _ in range(linhas):
         linha_do_codigo = str(input())
         codigo += linha_do_codigo
+    
+    pilha = []
+    validacao = True
 
-    if '{' not in codigo and '}' not in codigo:
-        validacao = True
-    if codigo.count('{') == codigo.count('}'):
-        validacao = True
-    else:
+    for char in codigo:
+        if char == '{': # Se for uma abertura de chave adiciona ela a pilha
+            pilha.append('{')
+        elif char == '}': # Se o caractere for de fechamento
+            if len(pilha) == 0: # Verifica se a pilha está vazia
+                validacao = False # Se estiver: fechamento antes de abertura
+                break
+            else:
+                pilha.pop() # Remove a abertura da chave da pilha
+    
+    if len(pilha) != 0: # Ao final da verificação a pilha deve estar vazia
         validacao = False
         
     #Saída
