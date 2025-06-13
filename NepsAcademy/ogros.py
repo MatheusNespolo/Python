@@ -6,20 +6,23 @@ N, M = map(int, input().split())
     # N = faixas de premiações
     # M = ogros
 
-limites = list(map(int, input().split()))
-premiacoes = list(map(int, input().split()))
-forcas = list(map(int, input().split()))
-premiacao_ogro = {}
+limites = [(input(). split())]
+premiacoes = [(input().split())]
+forcas = [(input().split())]
+forcas = sorted(forcas)
+premiacao_ogro = []
 
 # Processamento
-for i in range(M):
-    for j in range(N):
-        if limites[j] <= forcas[i]:
-            premiacao_ogro[forcas[i]] = premiacoes[j]
-            break
+for i in range(len(forcas)):
+    if forcas[i] < limites[0]:
+        premiacao_ogro.append(premiacoes[0])
 
 # Saída
-print(limites)
-print(premiacoes)
-print(forcas)
-print(premiacao_ogro)
+for j in limites:
+    print(j)
+for j in premiacoes:
+    print(j)
+for j in forcas:
+    print(j)
+for j in premiacao_ogro:
+    print(j)
