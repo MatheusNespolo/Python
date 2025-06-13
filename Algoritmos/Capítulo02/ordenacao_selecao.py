@@ -12,7 +12,7 @@ def buscaMenor(arr):
 
 def ordenacaoPorSelecao(arr):
     novoArr = []
-    for i in range(len(arr)):
+    for _ in range(len(arr)):
         menor = buscaMenor(arr)
         novoArr.append(arr.pop(menor))
     return novoArr

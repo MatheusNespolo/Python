@@ -9,13 +9,13 @@ N, M = map(int, input().split())
 limites = [(input(). split())]
 premiacoes = [(input().split())]
 forcas = [(input().split())]
-forcas = sorted(forcas)
 premiacao_ogro = []
 
 # Processamento
-for i in range(len(forcas)):
-    if forcas[i] < limites[0]:
-        premiacao_ogro.append(premiacoes[0])
+for i in range(M):
+    for j in range(N):
+        if int(limites[j][0]) <= int(forcas[i][0]) <= int(limites[j][1]):
+            premiacao_ogro.append(int(premiacoes[j][1]))
 
 # Saída
 for j in limites:
@@ -25,4 +25,4 @@ for j in premiacoes:
 for j in forcas:
     print(j)
 for j in premiacao_ogro:
-    print(j)
+    print(j, end=' ')
