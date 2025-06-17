@@ -9,6 +9,7 @@ N, M = map(int, input().split())
 limites = [(input(). split())]
 premiacoes = [(input().split())]
 forcas = [(input().split())]
+premiacoes_ogros = []
 
 # Processamento
 
@@ -20,3 +21,4 @@ for j in premiacoes:
     print(j)
 for j in forcas:
     print(j)
+print(*premiacoes_ogros)
