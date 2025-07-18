@@ -8,7 +8,8 @@ contador = V
 # V = Quantidade de voos
 voosPorAeroporto = {}
 testes = 0
-for i in range(1, A):
+aeroportosCongestionados = []
+for i in range(1, A + 1):
     voosPorAeroporto[i] = 0
 
 #Processamento
@@ -19,9 +20,12 @@ while A != 0 and V != 0:
     contador -= 1
     if contador == 0:
         testes += 1
+        for j in voosPorAeroporto:
+            if voosPorAeroporto[j] == max(voosPorAeroporto.values()):
+                aeroportosCongestionados.append(j)
         break
     
 #Saída
-for j in range(testes):
-    print(f'Teste {j+1}')
-print(voosPorAeroporto)
+for k in range(testes):
+    print(f'Teste {k + 1}')
+    print(aeroportosCongestionados[k])
