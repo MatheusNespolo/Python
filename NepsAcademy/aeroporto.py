@@ -14,19 +14,15 @@ def entrada():
 aeroportos, voos = entrada()
 
 #Processamento
-contador = voos
-while aeroportos != 0 and voos != 0:
+if aeroportos != 0 and voos != 0:
     aeroporto1, aeroporto2 = map(int, input().split())
     voosPorAeroporto[aeroporto1] += 1
     voosPorAeroporto[aeroporto2] += 1
-    contador -= 1
-    if contador == 0:
-        testes += 1
-        break
+    testes += 1
 
 for j in voosPorAeroporto:
-            if voosPorAeroporto[j] == max(voosPorAeroporto.values()):
-                aeroportosCongestionados.append(j)    
+    if voosPorAeroporto[j] == max(voosPorAeroporto.values()):
+        aeroportosCongestionados.append(j)
  
 #Saída
 for k in range(testes):
