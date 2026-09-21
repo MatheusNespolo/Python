@@ -18,3 +18,18 @@ print(df['blood_pressure_systolic_encoded'])
 df_codificado = pd.get_dummies(df, columns=['gender'])
 
 print(df_codificado)
+
+# Divisão do conjunto de dados (Treino e Teste)
+# Para avaliar um modelo de forma justa, ele não pode ser testado com os mesmos dados usados no treino - senão estaríamos medindo memorização, não aprendizado. Por isso, o dataset é dividido:
+
+from sklearn.model_selection import train_test_split
+
+X = df.drop(columns='diabetes_risk') # features
+y = df['diabetes_risk']
+
+X_treino, X_teste, y_treino, y_teste = train_test_split(X, y, test_size=0.2, random_state=42)
+# test_size=0.2 reserva de 20% dos dados para teste (uma proporção comum é 70/30 ou 80/20);
+# random_state fixa a "aleatoriedade" da divisão, garantindo que o experimento seja reproduzível
+
+# Normalização e Padronização
+
