@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-# Lendo um arquivo CSV (Como o "Vinho.csv" u "healthcare-dataset" da Aula 2)
+# Lendo um arquivo CSV (Como o "Vinho.csv" ou "healthcare-dataset" da Aula 2)
 df = pd.read_csv('Pandas/dataset.csv')
 
 # Mostra as primeiras 5 linhas
