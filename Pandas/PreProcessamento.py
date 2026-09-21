@@ -32,4 +32,10 @@ X_treino, X_teste, y_treino, y_teste = train_test_split(X, y, test_size=0.2, ran
 # random_state fixa a "aleatoriedade" da divisão, garantindo que o experimento seja reproduzível
 
 # Normalização e Padronização
+# Algoritmos baseados em distância (como kNN) ou em otimização por gradiente são sensíveis à escala das variáveis - uma coluna "salário" (na casa dos milhares) pontuaria mais do que uma coluna "idade" (na casa das dezenas) se não forem colocadas na mesma escala.
+
+# Normalização e Padronização
+# Reescala os valores para o intervalo 0, 1:
+
+from sklearn.preprocessing import MinMaxScaler
 
