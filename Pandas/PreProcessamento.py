@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 
 encoder = LabelEncoder()
 
-df = pd.read_csv('Pandas/dataset.csv')
+df = pd.read_csv('Pandas/datasets/diabetes_prediction_dataset.csv')
 
 df['blood_pressure_systolic_encoded'] = encoder.fit_transform(df['blood_pressure_systolic'])
 
