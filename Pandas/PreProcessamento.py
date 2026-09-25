@@ -8,9 +8,29 @@ encoder = LabelEncoder()
 
 df = pd.read_csv('Pandas/datasets/diabetes_prediction_dataset.csv')
 
-df['blood_pressure_systolic_encoded'] = encoder.fit_transform(df['blood_pressure_systolic'])
+# Carregando e explorando o dataset
+print("Explorando o dataset: diabetes_prediction_dataset.csv")
 
-print(df['blood_pressure_systolic_encoded'])
+# .shape retorna uma tupla representando as dimensões do DataFrame (linhas e colunas)
+print(f'\nForma: {df.shape[0]} linhas, {df.shape[1]} colunas\n')
+
+# Linhas iniciais
+print('Primeiras 5 linhas:')
+print(df.head())
+
+# Info geral
+print('Informações do dataset')
+print(df.info())
+
+# Estatísticas descritivas
+print('Estatísticas numéricas')
+print(df.describe())
+
+# Dados nulos
+print('Valores ausentes (NaN)')
+print(df.isnull().sum())
+
+
 
 # One-Hot Encoding
 # Cria uma coluna binária (0 ou 1) para cada categoria possível, evitando a ordem artificial do Label Encoding. É o mais indicado quando as categorias não têm uma ordem natural entre si.
