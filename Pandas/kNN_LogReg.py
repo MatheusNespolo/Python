@@ -57,3 +57,34 @@ print(f'\nPrevisões do modelo:{previsoes}')
 
 acuracia_com = modelo_knn.score(X_treino_pad, y_treino)
 print(f'\nAcurácia COM StandardScaler: {acuracia_com * 100:.2f}%')
+
+# Regressão Logística
+# Apesar do nome, é um algoritmo de classificação, não de regressão. APlica uma função sobre uma combinação linear, produzindo sempre algo entre 0 e 1.
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+modelo_logreg = LogisticRegression(max_iter=1000, random_state=42)
+
+X_treino, X_teste, y_treino, y_teste = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+# Padronização: a regressão linear usa otimização por gradiente e regularização, então também se beneficia de features na mesma escala
+X_treino_pad = scaler.fit_transform(X_treino)
+X_teste_pad = scaler.fit_transform(X_teste)
+
+modelo_logreg.fit(X_treino_pad, y_treino)
+
+previsoes = modelo_logreg.predict(X_teste_pad)
+print(f'\nAcurácia: {accuracy_score(y_teste, previsoes) * 100:.2f}%')
+
+print('\nMatriz de confusão (linhas = real, colunas = previsão):')
+print(confusion_matrix(y_teste, previsoes))
+
+print('\nRelatório de classificação:')
+print(classification_report(y_teste, previsoes, target_names=['Sem doença', 'Com doença']))
+
+# Interpretação: coeficientes positivos aumentam a chance de doenças, negativos diminuem. Comos os dados foram padronizados, os coeficientes são comparáveis entre si (quanto maior o valor absoluto, maior a influência)
+
+
